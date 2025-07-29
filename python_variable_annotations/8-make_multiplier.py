@@ -1,11 +1,17 @@
+#!/usr/bin/env python3
+"""Module make_multiplier
+Provides a function that creates a multiplier function.
+"""
+
 from typing import Callable
-def make_multiplier(multiplicer :float) -> Callable[[float], float]:
+
+def make_multiplier(multiplier: float) -> Callable[[float], float]:
     """Return a function that multiplies a float by a given multiplier.
 
     Args:
-        multiplicer (float): The multiplier to apply.
+        multiplier (float): The multiplier to apply.
 
     Returns:
         Callable[[float], float]: A function that takes a float and returns the product.
     """
-    return lambda x: x * multiplicer
+    return lambda x: x * multiplier
