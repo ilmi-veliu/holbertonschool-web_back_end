@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
 """Module element_length
-Defines a function that maps each element of an iterable of sequences
-to a tuple containing the element and its length.
+Provides a function that returns a list of tuples (sequence, length)
+from any iterable of sequences.
 """
 
 from typing import Iterable, Sequence, List, Tuple
 
+
 def element_length(lst: Iterable[Sequence]) -> List[Tuple[Sequence, int]]:
-    """Return a list of tuples (element, length) for each element in the input.
+    """Return a list of tuples with each element and its length.
 
     Args:
         lst (Iterable[Sequence]): An iterable of sequence-type elements.
 
     Returns:
-        List[Tuple[Sequence, int]]: A list of (element, length) pairs.
+        List[Tuple[Sequence, int]]: A list of tuples where each tuple contains
+        the original sequence and its length.
     """
     return [(i, len(i)) for i in lst]
