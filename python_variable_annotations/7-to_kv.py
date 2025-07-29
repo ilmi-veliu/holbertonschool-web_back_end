@@ -1,13 +1,19 @@
 #!/usr/bin/env python3
+"""Module to_kv
+Defines a function that returns a tuple with a string and the square of a number.
+"""
 
-def to_kv(k :str ,  v :float) -> tuple:
-    """Convert a string and a float to a tuple.
+from typing import Union, Tuple
+
+def to_kv(k: str, v: Union[int, float]) -> Tuple[str, float]:
+    """Return a tuple with the string and the square of the number as a float.
 
     Args:
         k (str): The string key.
-        v (float): The float value.
+        v (Union[int, float]): An int or float number to be squared.
 
     Returns:
-        tuple: A tuple containing the string key and the square of the float value.
+        Tuple[str, float]: A tuple where the first element is the string
+        and the second element is the square of the number, as a float.
     """
-    return (k, v ** 2)
+    return (k, float(v ** 2))
