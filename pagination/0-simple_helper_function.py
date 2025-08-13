@@ -15,6 +15,4 @@ def index_range(page, page_size):
     Returns:
         tuple: A tuple containing (start_index, end_index)
     """
-    debut = (page - 1) * page_size
-    fin = page * page_size
-    return debut, fin
+    return (page - 1) * page_size, page * page_size
