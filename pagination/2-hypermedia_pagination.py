@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Simple pagination
+Hypermedia pagination
 """
 
 import csv
@@ -68,3 +68,43 @@ class Server:
             return []
         
         return data[start_index:end_index]
+
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
+        """
+        Get a page of data with hypermedia metadata.
+        
+        Args:
+            page (int): Page number (1-indexed, default 1)
+            page_size (int): Number of items per page (default 10)
+            
+        Returns:
+            dict: Dictionary containing page data and metadata with keys:
+                - page_size: actual size of returned data
+                - page: current page number
+                - data: list of rows for the requested page
+                - next_page: next page number or None
+                - prev_page: previous page number or None
+                - total_pages: total number of pages
+        """
+        total_elements = len(self.dataset())
+        data = self.get_page(page, page_size)
+        total_pages = math.ceil(total_elements / page_size)
+        
+        if page < total_pages:
+            next_page = page + 1      
+        else:
+            next_page = None
+
+        if page > 1:
+            prev_page = page - 1
+        else:
+            prev_page = None
+        
+        return {
+            'page': page,
+            'page_size': len(data),
+            'data': data,          
+            'next_page': next_page,         
+            'prev_page': prev_page,
+            'total_pages': total_pages
+        }
