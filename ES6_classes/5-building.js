@@ -1,27 +1,21 @@
+// 5-building.js
 export default class Building {
   constructor(sqft) {
-    this.sqft = sqft;
-    if (new.target !== Building) {
-      if (new.target.prototype.evacuationWarningMessage === Building.prototype.evacuationWarningMessage) {
-        throw new Error('Class extending Building must override evacuationWarningMessage');
-      }
-    }
-  }
+    if (typeof sqft !== 'number') throw new TypeError('sqft must be a number');
+    this._sqft = sqft;
 
-  set sqft(newSqft) {
-    if (typeof newSqft !== 'number') {
-      throw new TypeError('Sqft must be a number');
+    if (this.constructor !== Building
+        && this.evacuationWarningMessage === Building.prototype.evacuationWarningMessage) {
+      throw new Error('Class extending Building must override evacuationWarningMessage');
     }
-    this._sqft = newSqft;
   }
 
   get sqft() {
     return this._sqft;
   }
 
-  /**
-     * Implementation required
-     */
+  /* eslint class-methods-use-this: ["off"] */
   evacuationWarningMessage() {
+    throw new Error('Class extending Building must override evacuationWarningMessage');
   }
 }
