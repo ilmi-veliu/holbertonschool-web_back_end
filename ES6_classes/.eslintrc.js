@@ -1,3 +1,4 @@
+
 module.exports = {
     env: {
       browser: false,
@@ -22,7 +23,6 @@ module.exports = {
       'no-underscore-dangle': 'off',
       'no-console': 'off',
       'no-shadow': 'off',
-      'import/extensions': ['error', 'always', { js: 'always' }],
       'no-restricted-syntax': [
         'error',
         'LabeledStatement',
