@@ -5,7 +5,7 @@ export default function handleProfileSignup() {
     .then((results) => {
       const userInfo = results[1];
       const photoInfo = results[0];
-      console.log(photoInfo.body, userInfo.firstName, userInfo.lastName);
+      console.log(`${photoInfo.body} ${userInfo.firstName} ${userInfo.lastName}`);
     })
     .catch(() => {
       console.log('Signup system offline');
