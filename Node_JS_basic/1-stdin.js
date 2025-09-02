@@ -1,5 +1,3 @@
-import readline from 'readline';
-
 const readline = require('readline');
 
 const rl = readline.createInterface({
@@ -13,5 +11,7 @@ rl.question('Welcome to Holberton School, what is your name?\n', (input) => {
 });
 
 rl.on('close', () => {
-  console.log('This important software is now closing');
+  if (!process.stdin.isTTY) {
+    console.log('This important software is now closing');
+  }
 });
