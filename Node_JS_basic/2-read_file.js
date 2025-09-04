@@ -10,7 +10,6 @@ function countStudents(path) {
     console.log(`Number of students: ${total}`);
 
     const fields = {};
-
     etudiant.forEach((line) => {
       const parts = line.split(',');
       const firstname = parts[0];
